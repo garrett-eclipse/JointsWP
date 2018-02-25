@@ -4,29 +4,19 @@
  */
 
 get_header(); ?>
-			
-<div class="content">
 
-	<div class="inner-content grid-x grid-margin-x grid-padding-x">
+<?php get_template_part( 'parts/wrapper', 'top-sidebar' ); ?>
 
-		<main class="main small-12 medium-8 large-8 cell" role="main">
-		
-		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		
-		    	<?php get_template_part( 'parts/loop', 'single' ); ?>
-		    	
-		    <?php endwhile; else : ?>
-		
-		   		<?php get_template_part( 'parts/content', 'missing' ); ?>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		    <?php endif; ?>
+	<?php get_template_part( 'parts/loop', 'single' ); ?>
 
-		</main> <!-- end #main -->
+<?php endwhile; else : ?>
 
-		<?php get_sidebar(); ?>
+	<?php get_template_part( 'parts/content', 'missing' ); ?>
 
-	</div> <!-- end #inner-content -->
+<?php endif; ?>
 
-</div> <!-- end #content -->
+<?php get_template_part( 'parts/wrapper', 'bottom-sidebar' ); ?>
 
 <?php get_footer(); ?>
